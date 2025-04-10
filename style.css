@@ -153,7 +153,7 @@ button:focus {
   order: 3;
   padding: 1rem;
   background-color: #f1f1f1;
-  border-radius: 8px;
+  border-radius: 1px;
   box-shadow: 0 4px 6px rgba(58, 56, 56, 0.1);
   width: 100%;  
   max-width: 1200px;  
@@ -161,16 +161,17 @@ button:focus {
 }
 
 #toggleInstrucciones {
-  padding: 10px 20px;
+  padding: 6px 2px;
   background-color: #2ecc71;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.7s;
-  margin-top: 20px; 
+  margin-top: 0px; 
   width: 100%;  
   max-width: 1200px; 
+  order: 3;
 }
 
 #toggleInstrucciones:hover {
@@ -180,7 +181,7 @@ button:focus {
 #instrucciones {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.7s ease;
   background: #f9f9f9;
   padding: 0;
   margin-top: 20px;
