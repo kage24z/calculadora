@@ -1,65 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="contenedor-principal">
+    <div class="calculadora">
+      <h2>Calculadora</h2>
+      <div class="pantalla">0</div>
+      <button id="C" class="btn">C</button>
+      <button id="borrar" class="btn">←</button>
+      <button class="btn">/</button>
+      <button class="btn">*</button>
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn">-</button>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn">+</button>
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button id="igual" class="btn">=</button>
+      <button id="cero" class="btn">0</button>
+      <button class="btn">.</button>
+    </div>
 
- <div class="calculadora">
-    <div class="pantalla">0</div>
+    <div class="conversor">
+      <h2>Conversor</h2>
+      <label for="category">Selecciona una categoría de conversión:</label>
+      <select id="category">
+        <option value="masa">Masa</option>
+        <option value="volumen">Volumen</option>
+        <option value="distancia">Distancia</option>
+        <option value="densidad">Densidad</option>
+        <option value="presion">Presión</option>
+        <option value="tiempo">Tiempo</option>
+        <option value="fuerza">Fuerza</option>
+        <option value="energia">Energía</option>
+      </select>
 
-    <button id="C" class="btn">C</button>
-    <button id="borrar" class="btn">←</button>
-    <button class="btn">/</button>
-    <button class="btn">*</button>
-    <button class="btn">7</button>
-    <button class="btn">8</button>
-    <button class="btn">9</button>
-    <button class="btn">-</button>
-    <button class="btn">4</button>
-    <button class="btn">5</button>
-    <button class="btn">6</button>
-    <button class="btn">+</button>
-    <button class="btn">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
-    <button id="igual" class="btn">=</button>
-    <button id="cero" class="btn">0</button>
-    <button class="btn">.</button>
- </div>
+      <label for="unitInput">Elige la unidad de entrada:</label>
+      <select id="unitInput"></select>
 
- <label for="category">Selecciona una medida de conversión:</label>
- <select id="category">
-   <option value="masa">Masa</option>
-   <option value="volumen">Volumen</option>
-   <option value="distancia">Distancia</option>
-   <option value="densidad">Densidad</option>
-   <option value="presion">Presión</option>
-   <option value="tiempo">Tiempo</option>
-   <option value="fuerza">Fuerza</option>
-   <option value="energia">Energía</option>
- </select>
+      <!-- Nuevo campo para seleccionar unidad de salida -->
+      <label for="unitOutput">Elige la unidad a convertir:</label>
+      <select id="unitOutput"></select>
 
- <label for="unitInput">Elige la unidad de entrada:</label>
-    <select id="unitInput"></select>
+      <input type="number" id="valueInput" placeholder="Ingresa el valor">
+      <button id="convertButton">Convertir</button>
 
-    <input type="number" id="valueInput" placeholder="Ingresa el valor">
-    <button id="convertButton">Convertir</button>
-
-    <div id="results">
-        <h2>Resultados:</h2>
-        <p><span id="result1"></span></p>
-        <p><span id="result2"></span></p>
-        <p><span id="result3"></span></p>
-        <p><span id="result4"></span></p>
-        <p><span id="result5"></span></p>
+      <div id="results">
+        <h2>Resultado:</h2>
+        <p><span id="customResult"></span></p>
       </div>
     </div>
-    
-    <script src="script.js"></script>
+  </div>
+
+  <!-- Botón para mostrar instrucciones -->
+  <div style="width: 100%; text-align: center; margin-top: 10rem; ">
+    <button id="toggleInstrucciones">Modo de Uso</button>
+  </div>
+
+  <!-- Sección de instrucciones desplegable -->
+  <div id="instrucciones" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: #f9f9f9; padding: 0 rem; margin-top: 1rem;">
+    <h2>Instrucciones de uso</h2>
+    <ol>
+      <li>Utiliza la calculadora numérica para realizar operaciones matemáticas básicas.</li>
+      <li>En el conversor, selecciona la categoría de unidad que deseas convertir (ej. Masa, Volumen, etc.).</li>
+      <li>Elige la unidad de entrada y la unidad a convertir que necesites.</li>
+      <li>Ingresa el valor que quieres convertir en el campo numérico.</li>
+      <li>Presiona el botón <strong>Convertir</strong> para obtener el resultado.</li>
+    </ol>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleInstrucciones");
+    const instrucciones = document.getElementById("instrucciones");
+
+    toggleBtn.addEventListener("click", () => {
+      if (instrucciones.style.maxHeight && instrucciones.style.maxHeight !== "0px") {
+        instrucciones.style.maxHeight = "0";
+        toggleBtn.textContent = "Modo de Uso";
+      } else {
+        instrucciones.style.maxHeight = instrucciones.scrollHeight + "px";
+        toggleBtn.textContent = "Ocultar instrucciones";
+      }
+    });
+  </script>
+
+  <script src="script.js"></script>
 </body>
-</html>  
+</html>
