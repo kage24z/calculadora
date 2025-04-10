@@ -1,5 +1,7 @@
 const pantalla = document.querySelector(".pantalla");
 const botones = document.querySelectorAll(".btn");
+const unitOutput = document.getElementById('unitOutput');
+const customResult = document.getElementById('customResult');
 
 // Obtenemos los elementos del DOM
 const categorySelect = document.getElementById('category');
@@ -14,39 +16,29 @@ function updateUnits() {
   let units = [];
 
   switch (category) {
-    case 'masa':
-      units = ['ton', 'kg', 'g', 'mg', 'ug'];
-      break;
-    case 'volumen':
-      units = ['gal', 'm3', 'L', 'mL', 'uL'];
-      break;
-    case 'distancia':
-      units = ['yardas', 'pulgada', 'm', 'cm', 'km', 'mm'];
-      break;
-    case 'densidad':
-      units = ['kg/m3', 'g/mL', 'kg/L', 'g/L'];
-      break;
-    case 'presion':
-      units = ['mmHg', 'atm', 'Pa', 'psi', 'Torr'];
-      break;
-    case 'tiempo':
-      units = ['s', 'min', 'hora'];
-      break;
-    case 'fuerza':
-      units = ['N', 'kN', 'µN', 'Dina', 'kgf'];
-      break;
-    case 'energia':
-      units = ['KJ', 'Kcal'];
-      break;
+    case 'masa': units = ['ton', 'kg', 'g', 'mg', 'ug']; break;
+    case 'volumen': units = ['gal', 'm3', 'L', 'mL', 'uL']; break;
+    case 'distancia': units = ['yardas', 'pulgada', 'm', 'cm', 'km', 'mm']; break;
+    case 'densidad': units = ['kg/m3', 'g/mL', 'kg/L', 'g/L']; break;
+    case 'presion': units = ['mmHg', 'atm', 'Pa', 'psi', 'Torr']; break;
+    case 'tiempo': units = ['s', 'min', 'hora']; break;
+    case 'fuerza': units = ['N', 'kN', 'µN', 'Dina', 'kgf']; break;
+    case 'energia': units = ['KJ', 'Kcal']; break;
   }
 
-  // Limpiar opciones y agregar las nuevas
+  // Limpiar y agregar opciones a ambos select
   unitInput.innerHTML = '';
+  unitOutput.innerHTML = '';
   units.forEach(unit => {
-    const option = document.createElement('option');
-    option.value = unit;
-    option.textContent = unit;
-    unitInput.appendChild(option);
+    const option1 = document.createElement('option');
+    option1.value = unit;
+    option1.textContent = unit;
+    unitInput.appendChild(option1);
+
+    const option2 = document.createElement('option');
+    option2.value = unit;
+    option2.textContent = unit;
+    unitOutput.appendChild(option2);
   });
 }
 
@@ -54,7 +46,8 @@ function updateUnits() {
 function convert() {
   const value = parseFloat(valueInput.value);
   const category = categorySelect.value;
-  const unit = unitInput.value;
+  const fromUnit = unitInput.value;
+  const toUnit = unitOutput.value;
 
   if (isNaN(value)) {
     alert('Por favor, ingresa un valor válido');
@@ -64,40 +57,29 @@ function convert() {
   let results = [];
 
   switch (category) {
-    case 'masa':
-      results = convertMasa(value, unit);
-      break;
-    case 'volumen':
-      results = convertVolumen(value, unit);
-      break;
-    case 'distancia':
-      results = convertDistancia(value, unit);
-      break;
-    case 'densidad':
-      results = convertDensidad(value, unit);
-      break;
-    case 'presion':
-      results = convertPresion(value, unit);
-      break;
-    case 'tiempo':
-      results = convertTiempo(value, unit);
-      break;
-    case 'fuerza':
-      results = convertFuerza(value, unit);
-      break;
-    case 'energia':
-      results = convertEnergia(value, unit);
-      break;
+    case 'masa': results = convertMasa(value, fromUnit); break;
+    case 'volumen': results = convertVolumen(value, fromUnit); break;
+    case 'distancia': results = convertDistancia(value, fromUnit); break;
+    case 'densidad': results = convertDensidad(value, fromUnit); break;
+    case 'presion': results = convertPresion(value, fromUnit); break;
+    case 'tiempo': results = convertTiempo(value, fromUnit); break;
+    case 'fuerza': results = convertFuerza(value, fromUnit); break;
+    case 'energia': results = convertEnergia(value, fromUnit); break;
   }
 
-  // Mostrar resultados con la unidad correspondiente
-  resultElements.forEach((resultElement, index) => {
-    if (results[index]) {
-      resultElement.textContent = `${results[index].value} ${results[index].unit}`;
-    } else {
-      resultElement.textContent = '';
-    }
-  });
+  // Buscar el resultado que coincide con la unidad de salida
+  const output = results.find(r => r.unit === toUnit);
+
+  if (output) {
+    customResult.textContent = `${output.value.toFixed(4)} ${output.unit}`;
+  } else {
+    customResult.textContent = 'Conversión no disponible.';
+  }
+  customResult.classList.add('flash');
+  setTimeout(() => {
+    customResult.classList.remove('flash');
+  }, 500);
+  
 }
 
 // Funciones para cada tipo de conversión (completas)
