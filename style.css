@@ -169,8 +169,7 @@ button:focus {
   cursor: pointer;
   transition: background-color 0.7s;
   margin-top: 0px; 
-  width: 100%;  
-  max-width: 1200px; 
+   
   order: 3;
 }
 
