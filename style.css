@@ -141,7 +141,7 @@ button:focus {
   background-color: #f4f4f4;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  order: 2;
+  order: 1;
 }
 
 /* Estilo de las instrucciones */
