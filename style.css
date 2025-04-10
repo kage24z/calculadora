@@ -1,11 +1,23 @@
-
-
 /* Estilos generales */
 body {
   min-height: 100vh;
   background-color: #ffffff;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.contenedor-principal {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -16,11 +28,13 @@ h1 {
 label, select, input, button {
   margin-top: 10px;
   font-size: 16px;
+  display: block;
+  width: 100%;
 }
 
 input, select {
   padding: 10px;
-  width: 200px;
+  width: 100%;
 }
 
 button {
@@ -47,6 +61,24 @@ button:focus {
 
 #results p {
   font-size: 18px;
+  margin: 8px 0;
+}
+
+/* Resultado individual con estilo */
+#customResult {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a7ae2;
+  background-color: #e3f2fd;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#customResult.flash {
+  background-color: #bbdefb;
+  color: #0d47a1;
 }
 
 /* Estilos de la calculadora */
@@ -60,6 +92,7 @@ button:focus {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: .5rem;
+  order: 1;
 }
 
 .pantalla {
@@ -103,14 +136,74 @@ button:focus {
   background-color: #e65766;
 }
 
+/* Estilos del conversor */
+.conversor {
+  max-width: 300px;
+  padding: 1.5rem;
+  background-color: #f4f4f4;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  order: 2;
+}
+
+/* Estilo de las instrucciones */
+.instrucciones {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  text-align: center;
+  order: 3;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;  
+  max-width: 1200px;  
+  margin-top: 20px;
+}
+
+#toggleInstrucciones {
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  margin-top: 20px; 
+  width: 100%;  
+  max-width: 1200px; 
+}
+
+#toggleInstrucciones:hover {
+  background-color: #27ae60;
+}
+
+#instrucciones {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: #f9f9f9;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#instrucciones h2 {
+  margin-top: 0;
+}
+
+#instrucciones ol {
+  padding-left: 20px;
+}
+
 /* Responsive Design */
-@media (max-width: 480px) {
-  .calculadora {
-      width: 100%;
-      padding: 1rem;
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .pantalla {
-      font-size: 1.5rem;
+  .calculadora, .conversor {
+    width: 100%;
   }
 }
