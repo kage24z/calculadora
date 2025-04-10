@@ -9,6 +9,7 @@
 </head>
 <body>
   <div class="contenedor-principal">
+    <!-- Calculadora -->
     <div class="calculadora">
       <h2>Calculadora</h2>
       <div class="pantalla">0</div>
@@ -32,6 +33,7 @@
       <button class="btn">.</button>
     </div>
 
+    <!-- Conversor -->
     <div class="conversor">
       <h2>Conversor</h2>
       <label for="category">Selecciona una categoría de conversión:</label>
@@ -61,23 +63,21 @@
         <p><span id="customResult"></span></p>
       </div>
     </div>
-  </div>
 
-  <!-- Botón para mostrar instrucciones -->
-  <div style="width: 100%; text-align: left; margin-top: 0rem; ">
-    <button id="toggleInstrucciones">Modo de Uso</button>
-  </div>
-
-  <!-- Sección de instrucciones desplegable -->
-  <div id="instrucciones" style="max-height: 0; overflow: hidden; transition: max-height 0.7s ease; background: #f9f9f9; padding: 0 rem; margin-top: 1rem;">
-    <h2>Instrucciones de uso</h2>
-    <ol>
-      <li>Utiliza la calculadora numérica para realizar operaciones matemáticas básicas.</li>
-      <li>En el conversor, selecciona la categoría de unidad que deseas convertir (ej. Masa, Volumen, etc.).</li>
-      <li>Elige la unidad de entrada y la unidad a convertir que necesites.</li>
-      <li>Ingresa el valor que quieres convertir en el campo numérico.</li>
-      <li>Presiona el botón <strong>Convertir</strong> para obtener el resultado.</li>
-    </ol>
+    <!-- Instrucciones -->
+    <div class="instrucciones">
+      <button id="toggleInstrucciones">Modo de Uso</button>
+      <div id="instrucciones">
+        <h2>Instrucciones de uso</h2>
+        <ol>
+          <li>Utiliza la calculadora numérica para realizar operaciones matemáticas básicas.</li>
+          <li>En el conversor, selecciona la categoría de unidad que deseas convertir (ej. Masa, Volumen, etc.).</li>
+          <li>Elige la unidad de entrada y la unidad a convertir que necesites.</li>
+          <li>Ingresa el valor que quieres convertir en el campo numérico.</li>
+          <li>Presiona el botón <strong>Convertir</strong> para obtener el resultado.</li>
+        </ol>
+      </div>
+    </div>
   </div>
 
   <script>
