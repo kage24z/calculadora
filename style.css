@@ -11,11 +11,10 @@ body {
 
 .contenedor-principal {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
- 
+  gap: 2rem;
 }
 
 h1 {
@@ -79,7 +78,7 @@ button:focus {
   color: #0d47a1;
 }
 
-/* Estilos de la calculadora */
+/* Calculadora a la izquierda */
 .calculadora {
   background-color: #090c31;
   color: white;
@@ -92,6 +91,7 @@ button:focus {
   gap: .5rem;
   order: 1;
 }
+
 
 .pantalla {
   grid-column: 1 / -1;
@@ -134,32 +134,29 @@ button:focus {
   background-color: #e65766;
 }
 
-/* Estilos del conversor */
+
 .conversor {
   max-width: 300px;
   padding: 1.5rem;
   background-color: #f4f4f4;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  order: 1;
+  order: 2; /* Posición: segundo */
 }
 
-/* Estilo de las instrucciones */
 .instrucciones {
   font-size: 14px;
   color: #666;
-  margin-top: 10px;
   text-align: center;
-  order: 3;
   padding: 1rem;
   background-color: #f1f1f1;
-  border-radius: 1px;
+  border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(58, 56, 56, 0.1);
   width: 100%;  
   max-width: 1200px;  
   margin-top: 20px;
+  order: 3; /* Posición: tercero */
 }
-
 #toggleInstrucciones {
   padding: 6px 2px;
   background-color: #2ecc71;
