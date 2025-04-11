@@ -150,8 +150,8 @@ button:focus {
   background-color: #f1f1f1;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(58, 56, 56, 0.1);
-  width: 100%;  
-  max-width: 600px;  
+  width: 75%;  
+  max-width: 1200px;  
   margin-top: 20px;
   order: 3; /* Posición: tercero */
 }
