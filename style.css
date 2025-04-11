@@ -151,7 +151,7 @@ button:focus {
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(58, 56, 56, 0.1);
   width: 100%;  
-  max-width: 1200px;  
+  max-width: 600px;  
   margin-top: 20px;
   order: 3; /* Posición: tercero */
 }
