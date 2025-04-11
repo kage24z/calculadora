@@ -151,9 +151,9 @@ button:focus {
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(58, 56, 56, 0.1);
   width: 75%;  
-  max-width: 1200px;  
+  max-width: 1000px;  
   margin-top: 20px;
-  order: 3; /* Posición: tercero */
+  order: 3; 
 }
 #toggleInstrucciones {
   padding: 6px 2px;
