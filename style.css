@@ -76,7 +76,7 @@ button:focus {
   color: #0d47a1;
 }
 
-/* Diseño Calculadora */
+//diseño calcu
 .calculadora {
   background-color: #090c31;
   color: white;
@@ -139,7 +139,7 @@ button:focus {
   background-color: #f4f4f4;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  order: 2; /* Posición: segundo */
+  order: 2;
 }
 
 .instrucciones {
@@ -189,7 +189,7 @@ button:focus {
   padding-left: 20px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .contenedor-principal {
     flex-direction: column;
