@@ -3,14 +3,14 @@ const botones = document.querySelectorAll(".btn");
 const unitOutput = document.getElementById('unitOutput');
 const customResult = document.getElementById('customResult');
 
-// Obtenemos los elementos del DOM
+// elementos del DOM
 const categorySelect = document.getElementById('category');
 const unitInput = document.getElementById('unitInput');
 const valueInput = document.getElementById('valueInput');
 const convertButton = document.getElementById('convertButton');
 const resultElements = document.querySelectorAll('#results p span');
 
-// Función para actualizar las unidades según la categoría
+// Función para cambiar las unidades según la categoría
 function updateUnits() {
   const category = categorySelect.value;
   let units = [];
@@ -26,7 +26,7 @@ function updateUnits() {
     case 'energia': units = ['KJ', 'Kcal']; break;
   }
 
-  // Limpiar y agregar opciones a ambos select
+  // Limpiar y agregar opciones 
   unitInput.innerHTML = '';
   unitOutput.innerHTML = '';
   units.forEach(unit => {
@@ -82,7 +82,7 @@ function convert() {
   
 }
 
-// Funciones para cada tipo de conversión (completas)
+// Funciones para cada tipo de conversión 
 
 function convertMasa(value, unit) {
   switch (unit) {
@@ -174,7 +174,7 @@ function convertVolumen(value, unit) {
   }
 }
 
-// Función de conversión para Distancia
+// conversión de Distancia
 function convertDistancia(value, unit) {
     switch (unit) {
       case 'yardas':
@@ -234,7 +234,7 @@ function convertDistancia(value, unit) {
     }
   }
   
-  // Función de conversión para Densidad
+  // conversión de Densidad
   function convertDensidad(value, unit) {
     switch (unit) {
       case 'kg/m3':
@@ -268,7 +268,7 @@ function convertDistancia(value, unit) {
     }
   }
   
-  // Función de conversión para Presión
+  // conversión de Presión
   function convertPresion(value, unit) {
     switch (unit) {
       case 'mmHg':
@@ -314,7 +314,7 @@ function convertDistancia(value, unit) {
     }
   }
   
-  // Función de conversión para Tiempo
+  // conversión de Tiempo
   function convertTiempo(value, unit) {
     switch (unit) {
       case 's':
@@ -338,7 +338,7 @@ function convertDistancia(value, unit) {
     }
   }
   
-  // Función de conversión para Fuerza
+  // conversión de Fuerza
   function convertFuerza(value, unit) {
     switch (unit) {
       case 'N':
@@ -384,7 +384,7 @@ function convertDistancia(value, unit) {
     }
   }
   
-  // Función de conversión para Energía
+  // conversión de Energía
   function convertEnergia(value, unit) {
     switch (unit) {
       case 'KJ':
@@ -404,9 +404,7 @@ function convertDistancia(value, unit) {
 convertButton.addEventListener('click', convert);
 categorySelect.addEventListener('change', updateUnits);
 
-// Inicializar las unidades al cargar
 updateUnits();
-
 
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
